@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Олимпиада</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="text-center mb-5">Олимпиада</h1>
+    </div>
+</header>
+
+<div class="container-md">
+    <div id="app">
+        <div class="d-flex justify-content-between">
+            <div class="input-group mb-3">
+                <label for="participants" class="input-group-text">Участники</label>
+                <input v-on:keyup.enter="send" type="text" class="form-control form-rounded" id="participants"
+                       v-model="participants" placeholder="Введите имена участников через запятую">
+                <button v-on:click="send" class="btn btn-primary" type="button" id="btn1">Добавить</button>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div v-show=visible class="col-12">
+                <vue-bootstrap-table
+                        :columns="columns"
+                        :values="values"
+                        :selectable="showSelect"
+                        :visible="visible"
+                        :multi-column-sortable="multiColumnSortable"
+                        :ajax="ajax"
+                >
+                </vue-bootstrap-table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/2.6.14_vue.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/vue2-bootstrap-table2.umd.js"></script>
+<script src="js/5.js"></script>
+</body>
+</html>
